@@ -39,6 +39,12 @@ if [ ! "$(which lzip)" ]; then
 	exit 1
 fi
 
+# check if adb is installed
+if [ ! "$(which adb)" ]; then
+	echo -e "adb is not installed. Please install adb.\nExample: sudo apt install adb"
+	exit 1
+fi
+
 # check if squashfs-tools are installed
 if [ ! "$(which mksquashfs)" ] || [ ! "$(which unsquashfs)" ]; then
 	echo -e "squashfs-tools is not installed. Please install squashfs-tools.\nExample: sudo apt install squashfs-tools"
@@ -88,6 +94,10 @@ else
 fi
 
 # get latest releasedate based on tag_name for latest x86_64 build
+proxy_port="12333"
+export http_proxy="http://127.0.0.1:$proxy_port"
+export https_proxy="http://127.0.0.1:$proxy_port"
+
 OPENGAPPS_RELEASEDATE="$($CURL -s https://api.github.com/repos/opengapps/x86_64/releases/latest | head -n 10 | grep tag_name | grep -o "\"[0-9][0-9]*\"" | grep -o "[0-9]*")" 
 OPENGAPPS_FILE="open_gapps-x86_64-7.1-mini-$OPENGAPPS_RELEASEDATE.zip"
 OPENGAPPS_URL="https://github.com/opengapps/x86_64/releases/download/$OPENGAPPS_RELEASEDATE/$OPENGAPPS_FILE"
@@ -250,3 +260,5 @@ echo "ro.opengles.version=131072" | $SUDO tee -a "$OVERLAYDIR/system/build.prop"
 echo "Restart anbox"
 
 $SUDO snap restart anbox.container-manager
+$SUDO /snap/anbox/current/bin/anbox-bridge.sh start
+adb shell settings put global http_proxy 192.168.250.1:$proxy_port
