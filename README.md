@@ -1,9 +1,14 @@
 # anbox-playstore-installer
 
 ## forked from geeks-r-us/anbox-playstore-installer
-此脚本将会在anbox中安装google play store及启用ARM支持
-请先挂全局代理，并编辑文件中的proxy_port为自己的代理端口
-安装完成后会自动配置anbox的代理，登陆过程中google play可能会卡死或闪退几次
+* 此脚本将会在anbox中安装google play store及启用ARM支持
+* 请先挂全局代理，并编辑文件中的proxy_port为自己的代理端口
+* 安装完成后会自动配置anbox的代理，登陆过程中google play可能会卡死或闪退几次
+* 完成后生成的anbox-work文件夹可删除
+
+## screenshot
+![图片alt](./1.png "截图")
+![图片alt](./2.png "截图")
 
 ## introduction
 Install script that automates installation of googles playstore in anbox (an LX container based environment to run Android apps on Linux https://www.anbox.io/ )
