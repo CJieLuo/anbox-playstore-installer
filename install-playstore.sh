@@ -263,3 +263,4 @@ $SUDO snap restart anbox.container-manager
 sleep 20
 $SUDO /snap/anbox/current/bin/anbox-bridge.sh start
 adb shell settings put global http_proxy 192.168.250.1:$proxy_port
+ln -s ~/snap/anbox/common/app-data/applications/anbox ~/.local/share/applications

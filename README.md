@@ -5,6 +5,7 @@
 * 请先挂全局代理，并编辑文件中的proxy_port为自己的代理端口
 * 安装完成后会自动配置anbox的代理，登陆过程中google play可能会卡死或闪退几次
 * 完成后生成的anbox-work文件夹可删除
+* 会在ln -s ~/.local/share/applications创建软连接到～/snap/anbox/common/app-data/applications/anbox，安装新程序会自动创建图标，如不需要可删除
 
 ## screenshot
 ![图片alt](./1.png "截图")
