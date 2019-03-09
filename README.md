@@ -7,6 +7,10 @@
 * 完成后生成的anbox-work文件夹可删除
 * 会在ln -s ~/.local/share/applications创建软连接到～/snap/anbox/common/app-data/applications/anbox，安装新程序会自动创建图标，如不需要可删除
 
+## push.sh
+* 此脚本可以将文件传入安卓目录，用法path/to/push.sh 需要传入的文件 传入的路径（默认是sdcard/download）
+* 如果文件为.apk，将执行安装
+
 ## screenshot
 ![图片alt](./1.png "截图")
 ![图片alt](./2.png "截图")
